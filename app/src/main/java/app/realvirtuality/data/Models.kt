@@ -62,7 +62,7 @@ data class SubscriptionPlan(
 sealed class ApiException : Exception() {
     object Unauthorized : ApiException()
     data class ServerError(val msg: String) : ApiException()
-    data class NetworkError(val cause: Throwable) : ApiException()
+    data class NetworkError(val error: Throwable) : ApiException()
 }
 
 // MARK: - Bulk Download
