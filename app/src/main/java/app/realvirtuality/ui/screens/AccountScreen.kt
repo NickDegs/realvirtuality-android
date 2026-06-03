@@ -3,9 +3,7 @@ package app.realvirtuality.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Crown
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -72,7 +70,7 @@ fun AccountScreen(modifier: Modifier = Modifier, authViewModel: AuthViewModel) {
                         leadingContent = {
                             Icon(
                                 when (user.subscriptionTier) {
-                                    SubscriptionTier.FULL -> Icons.Filled.Crown
+                                    SubscriptionTier.FULL -> Icons.Filled.WorkspacePremium
                                     else -> Icons.Filled.Star
                                 },
                                 null,
