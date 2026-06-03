@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">Daxil ol</string>
+    <string name="register">Qeydiyyat</string>
+    <string name="email">E-poçt</string>
+    <string name="username">İstifadəçi adı</string>
+    <string name="password">Şifrə</string>
+    <string name="logout">Çıxış</string>
+    <string name="download">Yüklə</string>
+    <string name="downloading">Yüklənir…</string>
+    <string name="preparing">Hazırlanır…</string>
+    <string name="download_complete">Yükləmə tamamlandı!</string>
+    <string name="download_failed">Yükləmə uğursuz oldu</string>
+    <string name="share_save">Paylaş / Saxla</string>
+    <string name="my_account">Mənim hesabım</string>
+    <string name="upgrade">Yüksəlt</string>
+    <string name="premium">Premium</string>
+    <string name="go_premium">Premium-a keç</string>
+    <string name="buy">Satın al</string>
+    <string name="settings">Parametrlər</string>
+    <string name="ok">Tamam</string>
+    <string name="cancel">Ləğv et</string>
+    <string name="close">Bağla</string>
+    <string name="version">Versiya</string>
+</resources>

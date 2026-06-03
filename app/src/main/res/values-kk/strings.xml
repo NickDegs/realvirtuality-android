@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">Кіру</string>
+    <string name="register">Тіркелу</string>
+    <string name="email">Электрондық пошта</string>
+    <string name="username">Пайдаланушы аты</string>
+    <string name="password">Құпия сөз</string>
+    <string name="logout">Шығу</string>
+    <string name="download">Жүктеу</string>
+    <string name="downloading">Жүктелуде…</string>
+    <string name="preparing">Дайындалуда…</string>
+    <string name="download_complete">Жүктеу аяқталды!</string>
+    <string name="download_failed">Жүктеу сәтсіз аяқталды</string>
+    <string name="share_save">Бөлісу / Сақтау</string>
+    <string name="my_account">Менің есептік жазбам</string>
+    <string name="upgrade">Жаңарту</string>
+    <string name="premium">Премиум</string>
+    <string name="go_premium">Премиумға өту</string>
+    <string name="buy">Сатып алу</string>
+    <string name="settings">Параметрлер</string>
+    <string name="ok">Жарайды</string>
+    <string name="cancel">Болдырмау</string>
+    <string name="close">Жабу</string>
+    <string name="version">Нұсқа</string>
+</resources>

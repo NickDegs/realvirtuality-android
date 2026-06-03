@@ -1,0 +1,3 @@
+-keepattributes *Annotation*
+-keepclassmembers class app.realvirtuality.data.** { *; }
+-keep class kotlinx.serialization.** { *; }
