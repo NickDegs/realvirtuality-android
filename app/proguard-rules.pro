@@ -1,5 +1,5 @@
 -keepattributes *Annotation*
--keepclassmembers class app.realvirtuality.data.** { *; }
+-keepclassmembers class app.mediafy.data.** { *; }
 -keep class kotlinx.serialization.** { *; }
 
 # Tink / security-crypto errorprone annotations are compile-time only

@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,9 +13,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.AutoSubscription
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.data.ApiService
+import app.mediafy.data.AutoSubscription
+import app.mediafy.ui.AuthViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -35,7 +35,7 @@ fun AutoDownloadScreen(
         isLoading = true
         runCatching { apiService.getAutoSubscriptions() }
             .onSuccess { subscriptions = it }
-            .onFailure { if (it is app.realvirtuality.data.ApiException.Unauthorized) authViewModel.logout() }
+            .onFailure { if (it is app.mediafy.data.ApiException.Unauthorized) authViewModel.logout() }
         isLoading = false
     }
 

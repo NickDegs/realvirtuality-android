@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -8,9 +8,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import app.realvirtuality.R
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.R
+import app.mediafy.data.ApiService
+import app.mediafy.ui.AuthViewModel
 
 @Composable
 fun MainScreen(authViewModel: AuthViewModel, apiService: ApiService) {

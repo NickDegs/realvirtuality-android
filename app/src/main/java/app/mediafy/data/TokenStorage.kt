@@ -1,4 +1,4 @@
-package app.realvirtuality.data
+package app.mediafy.data
 
 import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences

@@ -1,4 +1,4 @@
-package app.realvirtuality.data
+package app.mediafy.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

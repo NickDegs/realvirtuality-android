@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -17,11 +17,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import app.realvirtuality.data.ApiException
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.VideoChapter
-import app.realvirtuality.data.VideoInfo
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.data.ApiException
+import app.mediafy.data.ApiService
+import app.mediafy.data.VideoChapter
+import app.mediafy.data.VideoInfo
+import app.mediafy.ui.AuthViewModel
 import coil.compose.AsyncImage
 import kotlinx.coroutines.launch
 

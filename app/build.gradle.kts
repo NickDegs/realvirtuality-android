@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "app.realvirtuality"
+    namespace = "app.mediafy"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "app.realvirtuality"
+        applicationId = "app.mediafy"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "RealVirtuality"
+rootProject.name = "Mediafy"
 include(":app")

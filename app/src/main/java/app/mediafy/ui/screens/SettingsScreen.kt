@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import android.content.Context
 import android.content.Intent
@@ -14,9 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.core.net.toUri
-import app.realvirtuality.R
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.R
+import app.mediafy.data.ApiService
+import app.mediafy.ui.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -117,7 +117,7 @@ fun SettingsScreen(
                 ListItem(
                     headlineContent = { Text(stringResource(R.string.privacy_policy)) },
                     modifier = Modifier.clickable {
-                        openUrl(context, "https://realvirtuality.app/privacy")
+                        openUrl(context, "https://mediafy.app/privacy")
                     }
                 )
                 HorizontalDivider()
@@ -127,7 +127,7 @@ fun SettingsScreen(
                 ListItem(
                     headlineContent = { Text(stringResource(R.string.support)) },
                     modifier = Modifier.clickable {
-                        openUrl(context, "https://realvirtuality.app/support")
+                        openUrl(context, "https://mediafy.app/support")
                     }
                 )
                 HorizontalDivider()

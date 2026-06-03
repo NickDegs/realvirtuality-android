@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import android.content.Context
 import androidx.browser.customtabs.CustomTabsIntent
@@ -17,11 +17,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import app.realvirtuality.R
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.SubscriptionPlan
-import app.realvirtuality.data.SubscriptionTier
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.R
+import app.mediafy.data.ApiService
+import app.mediafy.data.SubscriptionPlan
+import app.mediafy.data.SubscriptionTier
+import app.mediafy.ui.AuthViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

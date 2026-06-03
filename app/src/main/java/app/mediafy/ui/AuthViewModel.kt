@@ -1,12 +1,12 @@
-package app.realvirtuality.ui
+package app.mediafy.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import app.realvirtuality.data.ApiException
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.TokenStorage
-import app.realvirtuality.data.User
+import app.mediafy.data.ApiException
+import app.mediafy.data.ApiService
+import app.mediafy.data.TokenStorage
+import app.mediafy.data.User
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

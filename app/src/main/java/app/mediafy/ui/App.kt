@@ -1,4 +1,4 @@
-package app.realvirtuality.ui
+package app.mediafy.ui
 
 import android.content.Intent
 import android.net.Uri
@@ -12,12 +12,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.ui.screens.AuthScreen
-import app.realvirtuality.ui.screens.MainScreen
+import app.mediafy.data.ApiService
+import app.mediafy.ui.screens.AuthScreen
+import app.mediafy.ui.screens.MainScreen
 
 @Composable
-fun RealVirtualityApp(
+fun MediafyApp(
     authViewModel: AuthViewModel,
     apiService: ApiService,
     intent: Intent?
@@ -27,7 +27,7 @@ fun RealVirtualityApp(
     // Handle deep link from intent
     LaunchedEffect(intent) {
         val data: Uri? = intent?.data
-        if (data?.scheme == "realvirtuality" && data.host == "payment") {
+        if (data?.scheme == "mediafy" && data.host == "payment") {
             val success = data.pathSegments.contains("success")
             authViewModel.onPaymentResult(success)
         }

@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,10 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.unit.dp
-import app.realvirtuality.data.ApiException
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.ScheduledDownload
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.data.ApiException
+import app.mediafy.data.ApiService
+import app.mediafy.data.ScheduledDownload
+import app.mediafy.ui.AuthViewModel
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId

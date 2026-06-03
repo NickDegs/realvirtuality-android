@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.theme
+package app.mediafy.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -29,7 +29,7 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
-fun RealVirtualityTheme(
+fun MediafyTheme(
     darkTheme: Boolean = false,
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit

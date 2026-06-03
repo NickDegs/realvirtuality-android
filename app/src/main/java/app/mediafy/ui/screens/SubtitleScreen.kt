@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -13,12 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import app.realvirtuality.data.ApiException
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.DownloadResponse
-import app.realvirtuality.data.SubtitleTrack
-import app.realvirtuality.ui.AuthViewModel
-import app.realvirtuality.ui.components.DownloadProgressCard
+import app.mediafy.data.ApiException
+import app.mediafy.data.ApiService
+import app.mediafy.data.DownloadResponse
+import app.mediafy.data.SubtitleTrack
+import app.mediafy.ui.AuthViewModel
+import app.mediafy.ui.components.DownloadProgressCard
 import kotlinx.coroutines.launch
 
 @Composable

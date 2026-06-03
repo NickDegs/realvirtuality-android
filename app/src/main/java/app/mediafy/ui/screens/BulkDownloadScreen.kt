@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,10 +14,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.BulkDownloadListResponse
-import app.realvirtuality.data.BulkItem
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.data.ApiService
+import app.mediafy.data.BulkDownloadListResponse
+import app.mediafy.data.BulkItem
+import app.mediafy.ui.AuthViewModel
 import coil.compose.AsyncImage
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import android.content.Intent
 import androidx.compose.foundation.clickable
@@ -18,10 +18,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import app.realvirtuality.R
-import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.DownloadHistoryItem
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.R
+import app.mediafy.data.ApiService
+import app.mediafy.data.DownloadHistoryItem
+import app.mediafy.ui.AuthViewModel
 import coil.compose.AsyncImage
 import kotlinx.coroutines.launch
 
@@ -41,7 +41,7 @@ fun GalleryScreen(
         isLoading = true
         runCatching { apiService.getDownloadHistory() }
             .onSuccess { items = it }
-            .onFailure { if (it is app.realvirtuality.data.ApiException.Unauthorized) authViewModel.logout() }
+            .onFailure { if (it is app.mediafy.data.ApiException.Unauthorized) authViewModel.logout() }
         isLoading = false
     }
 

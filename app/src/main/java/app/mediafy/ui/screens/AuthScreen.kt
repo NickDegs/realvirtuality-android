@@ -1,4 +1,4 @@
-package app.realvirtuality.ui.screens
+package app.mediafy.ui.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
@@ -16,8 +16,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import app.realvirtuality.R
-import app.realvirtuality.ui.AuthViewModel
+import app.mediafy.R
+import app.mediafy.ui.AuthViewModel
 
 @Composable
 fun AuthScreen(authViewModel: AuthViewModel) {
