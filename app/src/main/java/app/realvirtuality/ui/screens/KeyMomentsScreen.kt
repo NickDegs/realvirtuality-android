@@ -6,6 +6,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -123,7 +125,7 @@ private fun InputView(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Icon(
-                imageVector = androidx.compose.material.icons.Icons.Default.AutoAwesome,
+                imageVector = Icons.Default.AutoAwesome,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(56.dp)
@@ -144,7 +146,7 @@ private fun InputView(
             placeholder = { Text("YouTube, TikTok, Instagram...") },
             trailingIcon = {
                 IconButton(onClick = onPaste) {
-                    Icon(androidx.compose.material.icons.Icons.Default.ContentPaste, contentDescription = "Yapıştır")
+                    Icon(Icons.Default.ContentPaste, contentDescription = "Yapıştır")
                 }
             },
             modifier = Modifier.fillMaxWidth(),
@@ -218,7 +220,7 @@ private fun MomentsView(
                                 onClick = {},
                                 label = { Text("AI Tespiti", style = MaterialTheme.typography.labelSmall) },
                                 leadingIcon = {
-                                    Icon(androidx.compose.material.icons.Icons.Default.AutoAwesome, null, Modifier.size(14.dp))
+                                    Icon(Icons.Default.AutoAwesome, null, Modifier.size(14.dp))
                                 }
                             )
                         } else {
@@ -266,7 +268,7 @@ private fun MomentsView(
             verticalAlignment = Alignment.CenterVertically
         ) {
             OutlinedIconButton(onClick = onBack) {
-                Icon(androidx.compose.material.icons.Icons.Default.ArrowBack, contentDescription = "Geri")
+                Icon(Icons.Default.ArrowBack, contentDescription = "Geri")
             }
             Button(
                 onClick = onDownload,
@@ -298,9 +300,9 @@ private fun ChapterRow(chapter: VideoChapter, isSelected: Boolean, onClick: () -
     ) {
         Icon(
             imageVector = if (isSelected)
-                androidx.compose.material.icons.Icons.Default.CheckCircle
+                Icons.Default.CheckCircle
             else
-                androidx.compose.material.icons.Icons.Default.RadioButtonUnchecked,
+                Icons.Default.RadioButtonUnchecked,
             contentDescription = null,
             tint = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -342,7 +344,7 @@ private fun DoneView(taskCount: Int, onReset: () -> Unit) {
         verticalArrangement = Arrangement.Center
     ) {
         Icon(
-            imageVector = androidx.compose.material.icons.Icons.Default.CheckCircle,
+            imageVector = Icons.Default.CheckCircle,
             contentDescription = null,
             tint = MaterialTheme.colorScheme.primary,
             modifier = Modifier.size(80.dp)

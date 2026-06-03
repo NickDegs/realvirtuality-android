@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -47,7 +49,7 @@ fun SubtitleScreen(
         Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
             Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                 Icon(
-                    imageVector = androidx.compose.material.icons.Icons.Default.Subtitles,
+                    imageVector = Icons.Default.Subtitles,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(32.dp).align(Alignment.CenterVertically)
@@ -80,7 +82,7 @@ fun SubtitleScreen(
                         urlText = clipboard.getText()?.text ?: ""
                         tracks = emptyList()
                     }) {
-                        Icon(androidx.compose.material.icons.Icons.Default.ContentPaste, contentDescription = "Yapıştır")
+                        Icon(Icons.Default.ContentPaste, contentDescription = "Yapıştır")
                     }
                 },
                 modifier = Modifier.fillMaxWidth(),
@@ -165,7 +167,7 @@ fun SubtitleScreen(
                                 }
                                 if (isSelected) {
                                     Icon(
-                                        androidx.compose.material.icons.Icons.Default.CheckCircle,
+                                        Icons.Default.CheckCircle,
                                         contentDescription = null,
                                         tint = MaterialTheme.colorScheme.primary
                                     )

@@ -5,6 +5,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -52,7 +54,7 @@ fun ScheduledDownloadScreen(
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = { showAddDialog = true }) {
-                Icon(androidx.compose.material.icons.Icons.Default.Add, contentDescription = "Ekle")
+                Icon(Icons.Default.Add, contentDescription = "Ekle")
             }
         }
     ) { padding ->
@@ -114,7 +116,7 @@ private fun EmptyScheduledState(modifier: Modifier = Modifier, onAdd: () -> Unit
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         Icon(
-            androidx.compose.material.icons.Icons.Default.CalendarMonth,
+            Icons.Default.CalendarMonth,
             contentDescription = null,
             modifier = Modifier.size(64.dp),
             tint = MaterialTheme.colorScheme.primary
@@ -155,7 +157,7 @@ private fun ScheduledItemRow(item: ScheduledDownload, onDelete: () -> Unit) {
             )
         }
         IconButton(onClick = onDelete) {
-            Icon(androidx.compose.material.icons.Icons.Default.Delete, contentDescription = "Sil",
+            Icon(Icons.Default.Delete, contentDescription = "Sil",
                 tint = MaterialTheme.colorScheme.error)
         }
     }
@@ -212,7 +214,7 @@ private fun AddScheduledDialog(
                     placeholder = { Text("Instagram, TikTok, YouTube...") },
                     trailingIcon = {
                         IconButton(onClick = { urlText = clipboard.getText()?.text ?: "" }) {
-                            Icon(androidx.compose.material.icons.Icons.Default.ContentPaste, contentDescription = "Yapıştır")
+                            Icon(Icons.Default.ContentPaste, contentDescription = "Yapıştır")
                         }
                     },
                     modifier = Modifier.fillMaxWidth(),

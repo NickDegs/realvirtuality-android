@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -53,8 +55,8 @@ fun ClipScreen(
         Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
             Row(Modifier.padding(16.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
                 Icon(
-                    imageVector = if (asGif) androidx.compose.material.icons.Icons.Default.PlayArrow
-                    else androidx.compose.material.icons.Icons.Default.ContentCut,
+                    imageVector = if (asGif) Icons.Default.PlayArrow
+                    else Icons.Default.Edit,
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(32.dp).align(Alignment.CenterVertically)
@@ -83,7 +85,7 @@ fun ClipScreen(
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),
             trailingIcon = {
                 IconButton(onClick = { urlText = clipboard.getText()?.text ?: "" }) {
-                    Icon(androidx.compose.material.icons.Icons.Default.ContentPaste, contentDescription = "Yapıştır")
+                    Icon(Icons.Default.ContentPaste, contentDescription = "Yapıştır")
                 }
             },
             modifier = Modifier.fillMaxWidth(),
@@ -108,7 +110,7 @@ fun ClipScreen(
                         modifier = Modifier.weight(1f)
                     )
                     Icon(
-                        androidx.compose.material.icons.Icons.Default.ArrowForward,
+                        Icons.Default.ArrowForward,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -124,7 +126,7 @@ fun ClipScreen(
                 if (endTime <= startTime) {
                     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
                         Icon(
-                            androidx.compose.material.icons.Icons.Default.Warning,
+                            Icons.Default.Warning,
                             contentDescription = null,
                             tint = MaterialTheme.colorScheme.error,
                             modifier = Modifier.size(16.dp)
