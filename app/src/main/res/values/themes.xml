@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose uygulaması için Activity teması — ActionBar yok, Compose UI tam ekran -->
+    <style name="Theme.RealVirtuality" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+</resources>
