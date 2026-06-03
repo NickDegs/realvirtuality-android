@@ -3,6 +3,7 @@ package app.realvirtuality.ui.screens
 import android.content.Context
 import android.content.Intent
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -15,7 +16,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.core.net.toUri
 import app.realvirtuality.R
 import app.realvirtuality.data.ApiService
-import app.realvirtuality.data.SubscriptionTier
 import app.realvirtuality.ui.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -26,17 +26,11 @@ fun SettingsScreen(
     onDismiss: () -> Unit
 ) {
     val context = LocalContext.current
-    val state by authViewModel.state.collectAsState()
     val prefs = remember { context.getSharedPreferences("rv_settings", Context.MODE_PRIVATE) }
     var quality by remember { mutableStateOf(prefs.getString("quality", "best") ?: "best") }
     var audioOnly by remember { mutableStateOf(prefs.getBoolean("audio_only", false)) }
-    var showInstagram by remember { mutableStateOf(false) }
     var showSubscription by remember { mutableStateOf(false) }
 
-    if (showInstagram) {
-        InstagramLoginScreen(apiService = apiService, onDismiss = { showInstagram = false })
-        return
-    }
     if (showSubscription) {
         SubscriptionScreen(onDismiss = { showSubscription = false }, authViewModel = authViewModel)
         return
@@ -56,14 +50,15 @@ fun SettingsScreen(
     ) { padding ->
         LazyColumn(modifier = Modifier.padding(padding)) {
             item {
-                ListItem(headlineContent = { Text(stringResource(R.string.quality)) },
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.quality)) },
                     trailingContent = {
                         var expanded by remember { mutableStateOf(false) }
                         ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = it }) {
                             OutlinedTextField(
                                 value = when (quality) {
                                     "best" -> stringResource(R.string.best)
-                                    else -> quality + "p"
+                                    else -> "$quality p"
                                 },
                                 onValueChange = {},
                                 readOnly = true,
@@ -99,27 +94,18 @@ fun SettingsScreen(
                 HorizontalDivider()
             }
 
-            if (state.user?.subscriptionTier == SubscriptionTier.FULL) {
-                item {
-                    ListItem(
-                        headlineContent = { Text(stringResource(R.string.instagram_session)) },
-                        modifier = Modifier.then(Modifier.padding())
-                    )
-                    HorizontalDivider()
-                }
-            }
-
             item {
                 ListItem(
                     headlineContent = { Text(stringResource(R.string.manage_plan)) },
-                    modifier = androidx.compose.ui.Modifier
+                    modifier = Modifier.clickable { showSubscription = true }
                 )
                 HorizontalDivider()
             }
 
             item {
-                val versionName = context.packageManager
-                    .getPackageInfo(context.packageName, 0).versionName
+                val versionName = runCatching {
+                    context.packageManager.getPackageInfo(context.packageName, 0).versionName
+                }.getOrDefault("1.0")
                 ListItem(
                     headlineContent = { Text(stringResource(R.string.version)) },
                     trailingContent = { Text(versionName ?: "1.0") }
@@ -130,15 +116,20 @@ fun SettingsScreen(
             item {
                 ListItem(
                     headlineContent = { Text(stringResource(R.string.privacy_policy)) },
-                    modifier = Modifier.then(
-                        Modifier.padding()
-                    )
+                    modifier = Modifier.clickable {
+                        openUrl(context, "https://realvirtuality.app/privacy")
+                    }
                 )
                 HorizontalDivider()
             }
 
             item {
-                ListItem(headlineContent = { Text(stringResource(R.string.support)) })
+                ListItem(
+                    headlineContent = { Text(stringResource(R.string.support)) },
+                    modifier = Modifier.clickable {
+                        openUrl(context, "https://realvirtuality.app/support")
+                    }
+                )
                 HorizontalDivider()
             }
         }
