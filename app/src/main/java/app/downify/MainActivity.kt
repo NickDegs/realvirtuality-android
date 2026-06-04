@@ -1,15 +1,15 @@
-package app.mediafy
+package app.downify
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.ViewModelProvider
-import app.mediafy.data.ApiService
-import app.mediafy.data.TokenStorage
-import app.mediafy.ui.AuthViewModel
-import app.mediafy.ui.MediafyApp
-import app.mediafy.ui.theme.MediafyTheme
+import app.downify.data.ApiService
+import app.downify.data.TokenStorage
+import app.downify.ui.AuthViewModel
+import app.downify.ui.DownifyApp
+import app.downify.ui.theme.DownifyTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -27,8 +27,8 @@ class MainActivity : ComponentActivity() {
         )[AuthViewModel::class.java]
 
         setContent {
-            MediafyTheme {
-                MediafyApp(
+            DownifyTheme {
+                DownifyApp(
                     authViewModel = authViewModel,
                     apiService = apiService,
                     intent = intent
@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
         super.onNewIntent(intent)
         setIntent(intent)
         val data = intent.data
-        if (data?.scheme == "mediafy" && data.host == "payment") {
+        if (data?.scheme == "downify" && data.host == "payment") {
             val success = data.pathSegments.contains("success")
             authViewModel.onPaymentResult(success)
         }

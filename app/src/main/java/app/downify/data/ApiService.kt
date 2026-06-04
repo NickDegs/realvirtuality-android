@@ -1,4 +1,4 @@
-package app.mediafy.data
+package app.downify.data
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -8,7 +8,7 @@ import javax.net.ssl.HttpsURLConnection
 
 class ApiService(private val tokenStorage: TokenStorage) {
 
-    private val baseUrl = "https://api.mediafy.app"
+    private val baseUrl = "https://api.downify.app"
     private val json = Json { ignoreUnknownKeys = true; coerceInputValues = true }
 
     private suspend fun request(

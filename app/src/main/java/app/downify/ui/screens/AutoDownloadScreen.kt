@@ -1,4 +1,4 @@
-package app.mediafy.ui.screens
+package app.downify.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,9 +13,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import app.mediafy.data.ApiService
-import app.mediafy.data.AutoSubscription
-import app.mediafy.ui.AuthViewModel
+import app.downify.data.ApiService
+import app.downify.data.AutoSubscription
+import app.downify.ui.AuthViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -35,7 +35,7 @@ fun AutoDownloadScreen(
         isLoading = true
         runCatching { apiService.getAutoSubscriptions() }
             .onSuccess { subscriptions = it }
-            .onFailure { if (it is app.mediafy.data.ApiException.Unauthorized) authViewModel.logout() }
+            .onFailure { if (it is app.downify.data.ApiException.Unauthorized) authViewModel.logout() }
         isLoading = false
     }
 

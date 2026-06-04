@@ -1,12 +1,12 @@
-package app.mediafy.ui
+package app.downify.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import app.mediafy.data.ApiException
-import app.mediafy.data.ApiService
-import app.mediafy.data.TokenStorage
-import app.mediafy.data.User
+import app.downify.data.ApiException
+import app.downify.data.ApiService
+import app.downify.data.TokenStorage
+import app.downify.data.User
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

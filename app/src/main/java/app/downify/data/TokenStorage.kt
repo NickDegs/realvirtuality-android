@@ -1,4 +1,4 @@
-package app.mediafy.data
+package app.downify.data
 
 import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences

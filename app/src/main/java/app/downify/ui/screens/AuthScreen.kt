@@ -1,4 +1,4 @@
-package app.mediafy.ui.screens
+package app.downify.ui.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
@@ -16,8 +16,8 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import app.mediafy.R
-import app.mediafy.ui.AuthViewModel
+import app.downify.R
+import app.downify.ui.AuthViewModel
 
 @Composable
 fun AuthScreen(authViewModel: AuthViewModel) {

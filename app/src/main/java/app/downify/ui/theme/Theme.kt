@@ -1,4 +1,4 @@
-package app.mediafy.ui.theme
+package app.downify.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
@@ -29,7 +29,7 @@ private val DarkColors = darkColorScheme(
 )
 
 @Composable
-fun MediafyTheme(
+fun DownifyTheme(
     darkTheme: Boolean = false,
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit

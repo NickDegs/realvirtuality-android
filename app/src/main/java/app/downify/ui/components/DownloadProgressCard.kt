@@ -1,4 +1,4 @@
-package app.mediafy.ui.components
+package app.downify.ui.components
 
 import android.content.Intent
 import androidx.compose.foundation.layout.*
@@ -14,9 +14,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import app.mediafy.R
-import app.mediafy.data.ApiService
-import app.mediafy.data.DownloadStatus
+import app.downify.R
+import app.downify.data.ApiService
+import app.downify.data.DownloadStatus
 import kotlinx.coroutines.delay
 
 @Composable

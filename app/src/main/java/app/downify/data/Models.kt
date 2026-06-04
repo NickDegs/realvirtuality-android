@@ -1,4 +1,4 @@
-package app.mediafy.data
+package app.downify.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

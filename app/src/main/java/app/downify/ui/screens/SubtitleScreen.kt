@@ -1,4 +1,4 @@
-package app.mediafy.ui.screens
+package app.downify.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -13,12 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import app.mediafy.data.ApiException
-import app.mediafy.data.ApiService
-import app.mediafy.data.DownloadResponse
-import app.mediafy.data.SubtitleTrack
-import app.mediafy.ui.AuthViewModel
-import app.mediafy.ui.components.DownloadProgressCard
+import app.downify.data.ApiException
+import app.downify.data.ApiService
+import app.downify.data.DownloadResponse
+import app.downify.data.SubtitleTrack
+import app.downify.ui.AuthViewModel
+import app.downify.ui.components.DownloadProgressCard
 import kotlinx.coroutines.launch
 
 @Composable

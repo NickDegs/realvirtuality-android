@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "app.mediafy"
+    namespace = "app.downify"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "app.mediafy"
+        applicationId = "app.downify"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

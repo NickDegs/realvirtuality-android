@@ -1,4 +1,4 @@
-package app.mediafy.ui.screens
+package app.downify.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -14,10 +14,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
-import app.mediafy.data.ApiService
-import app.mediafy.data.BulkDownloadListResponse
-import app.mediafy.data.BulkItem
-import app.mediafy.ui.AuthViewModel
+import app.downify.data.ApiService
+import app.downify.data.BulkDownloadListResponse
+import app.downify.data.BulkItem
+import app.downify.ui.AuthViewModel
 import coil.compose.AsyncImage
 import kotlinx.coroutines.launch
 

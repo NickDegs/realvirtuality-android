@@ -1,4 +1,4 @@
-package app.mediafy.ui.screens
+package app.downify.ui.screens
 
 import android.content.Context
 import androidx.browser.customtabs.CustomTabsIntent
@@ -17,11 +17,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
-import app.mediafy.R
-import app.mediafy.data.ApiService
-import app.mediafy.data.SubscriptionPlan
-import app.mediafy.data.SubscriptionTier
-import app.mediafy.ui.AuthViewModel
+import app.downify.R
+import app.downify.data.ApiService
+import app.downify.data.SubscriptionPlan
+import app.downify.data.SubscriptionTier
+import app.downify.ui.AuthViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

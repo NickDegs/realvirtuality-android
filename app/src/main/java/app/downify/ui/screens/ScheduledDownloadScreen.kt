@@ -1,4 +1,4 @@
-package app.mediafy.ui.screens
+package app.downify.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,10 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.unit.dp
-import app.mediafy.data.ApiException
-import app.mediafy.data.ApiService
-import app.mediafy.data.ScheduledDownload
-import app.mediafy.ui.AuthViewModel
+import app.downify.data.ApiException
+import app.downify.data.ApiService
+import app.downify.data.ScheduledDownload
+import app.downify.ui.AuthViewModel
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.ZoneId

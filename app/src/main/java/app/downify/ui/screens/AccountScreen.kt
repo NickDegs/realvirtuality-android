@@ -1,4 +1,4 @@
-package app.mediafy.ui.screens
+package app.downify.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,9 +10,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import app.mediafy.R
-import app.mediafy.data.SubscriptionTier
-import app.mediafy.ui.AuthViewModel
+import app.downify.R
+import app.downify.data.SubscriptionTier
+import app.downify.ui.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

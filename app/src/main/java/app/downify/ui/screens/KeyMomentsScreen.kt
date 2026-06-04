@@ -1,4 +1,4 @@
-package app.mediafy.ui.screens
+package app.downify.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -17,11 +17,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import app.mediafy.data.ApiException
-import app.mediafy.data.ApiService
-import app.mediafy.data.VideoChapter
-import app.mediafy.data.VideoInfo
-import app.mediafy.ui.AuthViewModel
+import app.downify.data.ApiException
+import app.downify.data.ApiService
+import app.downify.data.VideoChapter
+import app.downify.data.VideoInfo
+import app.downify.ui.AuthViewModel
 import coil.compose.AsyncImage
 import kotlinx.coroutines.launch
 
