@@ -56,5 +56,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coil.compose)
     implementation("androidx.compose.material:material-icons-extended:1.7.6")
+    implementation(libs.play.services.ads)
+    implementation(libs.ump)
     debugImplementation(libs.androidx.ui.tooling)
 }
