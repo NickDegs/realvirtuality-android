@@ -26,6 +26,11 @@ class MainActivity : ComponentActivity() {
             AuthViewModel.Factory(apiService, tokenStorage)
         )[AuthViewModel::class.java]
 
+        AdManager.shared.initialize(this)
+        AdManager.shared.requestUmpConsent(this) {
+            AdManager.shared.loadInterstitial(this)
+        }
+
         setContent {
             DownifyTheme {
                 DownifyApp(
