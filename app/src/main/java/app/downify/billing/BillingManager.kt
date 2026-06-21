@@ -38,7 +38,7 @@ class BillingManager(
 
     companion object {
         // Must match the product IDs created in Google Play Console.
-        val INAPP_IDS = listOf("downify_pro", "downify_lifetime")
+        val INAPP_IDS = listOf("downify_pro")
         const val SUB_ID = "downify_full"   // base plans: monthly, yearly
     }
 
