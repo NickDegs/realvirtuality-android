@@ -13,7 +13,9 @@ android {
         applicationId = "app.downify"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
+        // CI passes a unique, increasing versionCode via -PversionCode (Unix
+        // time). Play rejects duplicate version codes, so each upload must bump.
+        versionCode = (project.findProperty("versionCode") as String?)?.toIntOrNull() ?: 1
         versionName = "1.0"
     }
 
