@@ -8,7 +8,7 @@ import javax.net.ssl.HttpsURLConnection
 
 class ApiService(private val tokenStorage: TokenStorage) {
 
-    private val baseUrl = "https://api.downify.app"
+    private val baseUrl = "https://realvirtuality.app/downify-api"
     private val json = Json { ignoreUnknownKeys = true; coerceInputValues = true }
 
     private suspend fun request(
@@ -67,7 +67,20 @@ class ApiService(private val tokenStorage: TokenStorage) {
         return json.decodeFromString(request("/auth/register", "POST", body))
     }
 
+    suspend fun guestLogin(): AuthResponse =
+        json.decodeFromString(request("/auth/guest", "POST", "{}"))
+
     suspend fun getMe(): User = json.decodeFromString(request("/auth/me"))
+
+    suspend fun deleteAccount() {
+        request("/auth/account", "DELETE")
+    }
+
+    /** Verifies a Google Play purchase server-side and syncs the user's tier. */
+    suspend fun recordPlayPurchase(productId: String, purchaseToken: String): User {
+        val body = """{"product_id":"${productId.sanitize()}","purchase_token":"${purchaseToken.sanitize()}"}"""
+        return json.decodeFromString(request("/subscription/google-play", "POST", body))
+    }
 
     // MARK: Download
 

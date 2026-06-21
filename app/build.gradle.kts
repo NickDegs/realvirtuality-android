@@ -58,5 +58,6 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended:1.7.6")
     implementation(libs.play.services.ads)
     implementation(libs.ump)
+    implementation(libs.billing.ktx)
     debugImplementation(libs.androidx.ui.tooling)
 }

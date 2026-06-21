@@ -15,7 +15,7 @@ enum class SubscriptionTier(val value: String) {
 
 @Serializable
 data class User(
-    val id: Int,
+    val id: String,
     val email: String,
     val username: String,
     val tier: String,
@@ -27,6 +27,7 @@ data class User(
 @Serializable
 data class AuthResponse(
     @SerialName("access_token") val accessToken: String,
+    @SerialName("token_type") val tokenType: String = "bearer",
     val user: User
 )
 

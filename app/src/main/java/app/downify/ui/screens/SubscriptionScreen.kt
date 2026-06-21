@@ -1,7 +1,6 @@
 package app.downify.ui.screens
 
-import android.content.Context
-import androidx.browser.customtabs.CustomTabsIntent
+import android.app.Activity
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -16,13 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.core.net.toUri
 import app.downify.R
+import app.downify.billing.BillingManager
+import app.downify.billing.StoreProduct
 import app.downify.data.ApiService
-import app.downify.data.SubscriptionPlan
-import app.downify.data.SubscriptionTier
+import app.downify.data.TokenStorage
 import app.downify.ui.AuthViewModel
-import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -31,22 +29,25 @@ fun SubscriptionScreen(
     authViewModel: AuthViewModel
 ) {
     val context = LocalContext.current
+    val activity = context as? Activity
     val scope = rememberCoroutineScope()
-    var isLoading by remember { mutableStateOf(false) }
-    var errorMessage by remember { mutableStateOf<String?>(null) }
 
-    val plans = remember {
-        listOf(
-            SubscriptionPlan("ad_free", "Reklamsız", "$3", "tek seferlik",
-                listOf("Reklamsız deneyim", "Temel indirme", "Tüm platformlar"), SubscriptionTier.AD_FREE),
-            SubscriptionPlan("full_monthly", "Full — Aylık", "$5", "/ ay",
-                listOf("Tüm özellikler", "Özel Instagram", "Öncelikli indirme"), SubscriptionTier.FULL),
-            SubscriptionPlan("full_yearly", "Full — Yıllık", "$30", "/ yıl",
-                listOf("Tüm özellikler", "Özel Instagram", "Öncelikli indirme", "%50 tasarruf"), SubscriptionTier.FULL),
-            SubscriptionPlan("full_lifetime", "Ömür Boyu", "$50", "tek seferlik",
-                listOf("Tüm özellikler", "Özel Instagram", "Sınırsız indirme", "Kalıcı"), SubscriptionTier.FULL)
+    val billing = remember {
+        BillingManager(
+            context = context.applicationContext,
+            api = ApiService(TokenStorage(context.applicationContext)),
+            scope = scope,
+            onEntitlementChanged = { authViewModel.refreshUser() }
         )
     }
+    DisposableEffect(Unit) {
+        billing.start()
+        onDispose { billing.release() }
+    }
+
+    val products by billing.products.collectAsState()
+    val purchasing by billing.purchasing.collectAsState()
+    val status by billing.status.collectAsState()
 
     Scaffold(
         topBar = {
@@ -78,50 +79,72 @@ fun SubscriptionScreen(
                 }
             }
 
-            items(plans) { plan ->
-                PlanCard(plan = plan, isLoading = isLoading) {
-                    scope.launch {
-                        isLoading = true
-                        errorMessage = null
-                        // apiService is needed here - passed via DI in real app
-                        // For now open Stripe checkout via API
-                        isLoading = false
+            if (products.isEmpty()) {
+                item {
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                        CircularProgressIndicator(modifier = Modifier.size(28.dp))
                     }
                 }
             }
 
-            errorMessage?.let {
+            items(products) { product ->
+                PlanCard(
+                    product = product,
+                    isBuying = purchasing == product.key
+                ) {
+                    activity?.let { billing.purchase(it, product) }
+                }
+            }
+
+            status?.let {
                 item { Text(it, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall) }
+            }
+
+            item {
+                TextButton(
+                    onClick = { billing.restore() },
+                    modifier = Modifier.fillMaxWidth()
+                ) { Text(stringResource(R.string.restore_purchases)) }
+            }
+
+            item {
+                Text(
+                    text = stringResource(R.string.subscription_terms),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
         }
     }
 }
 
 @Composable
-private fun PlanCard(plan: SubscriptionPlan, isLoading: Boolean, onBuy: () -> Unit) {
+private fun PlanCard(product: StoreProduct, isBuying: Boolean, onBuy: () -> Unit) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically) {
-                Column {
-                    Text(plan.name, style = MaterialTheme.typography.titleMedium)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(product.title, style = MaterialTheme.typography.titleMedium)
                     Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-                        Text(plan.price, style = MaterialTheme.typography.titleLarge,
+                        Text(product.price, style = MaterialTheme.typography.titleLarge,
                             color = MaterialTheme.colorScheme.primary)
-                        Text(plan.period, style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        if (product.period.isNotBlank()) {
+                            Text(product.period, style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        }
                     }
                 }
-                Button(onClick = onBuy, enabled = !isLoading) {
-                    Text("Satın Al")
-                }
-            }
-            HorizontalDivider()
-            plan.features.forEach { feature ->
-                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Icon(Icons.Filled.CheckCircle, null, modifier = Modifier.size(16.dp),
-                        tint = MaterialTheme.colorScheme.primary)
-                    Text(feature, style = MaterialTheme.typography.bodySmall)
+                Button(onClick = onBuy, enabled = !isBuying) {
+                    if (isBuying) {
+                        CircularProgressIndicator(modifier = Modifier.size(18.dp),
+                            color = MaterialTheme.colorScheme.onPrimary)
+                    } else {
+                        Text(stringResource(R.string.buy))
+                    }
                 }
             }
         }

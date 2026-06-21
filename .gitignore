@@ -17,3 +17,4 @@ release.properties
 # Generated
 app/release/
 app/debug/
+build

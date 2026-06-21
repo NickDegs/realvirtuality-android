@@ -121,5 +121,25 @@ fun AuthScreen(authViewModel: AuthViewModel) {
         }) {
             Text(if (isLogin) stringResource(R.string.no_account) else stringResource(R.string.have_account))
         }
+
+        Spacer(Modifier.height(8.dp))
+        HorizontalDivider(modifier = Modifier.fillMaxWidth(0.6f))
+        Spacer(Modifier.height(8.dp))
+
+        OutlinedButton(
+            onClick = { authViewModel.loginAsGuest() },
+            enabled = !state.isLoading,
+            modifier = Modifier.fillMaxWidth().height(52.dp)
+        ) {
+            Icon(Icons.Filled.PersonOutline, contentDescription = null, modifier = Modifier.size(18.dp))
+            Spacer(Modifier.width(8.dp))
+            Text(stringResource(R.string.continue_without_account))
+        }
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = stringResource(R.string.guest_hint),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
     }
 }

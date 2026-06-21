@@ -20,6 +20,7 @@ fun AccountScreen(modifier: Modifier = Modifier, authViewModel: AuthViewModel) {
     val state by authViewModel.state.collectAsState()
     val user = state.user ?: return
     var showSubscription by remember { mutableStateOf(false) }
+    var showDeleteConfirm by remember { mutableStateOf(false) }
 
     if (showSubscription) {
         SubscriptionScreen(onDismiss = { showSubscription = false }, authViewModel = authViewModel)
@@ -100,6 +101,44 @@ fun AccountScreen(modifier: Modifier = Modifier, authViewModel: AuthViewModel) {
                     Text(stringResource(R.string.logout))
                 }
             }
+
+            item {
+                TextButton(
+                    onClick = { showDeleteConfirm = true },
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(Icons.Filled.DeleteForever, contentDescription = null, modifier = Modifier.size(18.dp))
+                    Spacer(Modifier.width(8.dp))
+                    Text(stringResource(R.string.delete_account))
+                }
+                Text(
+                    text = stringResource(R.string.delete_account_hint),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                )
+            }
         }
+    }
+
+    if (showDeleteConfirm) {
+        AlertDialog(
+            onDismissRequest = { showDeleteConfirm = false },
+            title = { Text(stringResource(R.string.delete_account)) },
+            text = { Text(stringResource(R.string.delete_account_confirm)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showDeleteConfirm = false
+                        authViewModel.deleteAccount()
+                    },
+                    colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)
+                ) { Text(stringResource(R.string.delete_account)) }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteConfirm = false }) { Text(stringResource(R.string.cancel)) }
+            }
+        )
     }
 }

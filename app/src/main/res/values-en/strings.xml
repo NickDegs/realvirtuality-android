@@ -49,4 +49,11 @@
     <string name="support">Support</string>
     <string name="premium">Premium</string>
     <string name="subscription">Subscription</string>
+    <string name="continue_without_account">Continue without an account</string>
+    <string name="guest_hint">You can download public content without creating an account.</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="delete_account_hint">Your account and all data are permanently deleted. This cannot be undone.</string>
+    <string name="delete_account_confirm">Your account and all data will be permanently deleted. This cannot be undone.</string>
+    <string name="restore_purchases">Restore Purchases</string>
+    <string name="subscription_terms">Subscriptions auto-renew unless cancelled at least 24 hours before the period ends. Payment is charged to your Google Play account. Manage or cancel anytime in Google Play.</string>
 </resources>

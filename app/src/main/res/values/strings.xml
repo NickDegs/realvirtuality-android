@@ -50,4 +50,11 @@
     <string name="instagram_saved">Instagram oturumunuz kaydedildi. Artık özel içerikleri indirebilirsiniz.</string>
     <string name="saving">Kaydediliyor…</string>
     <string name="paste_url">Panodan Yapıştır</string>
+    <string name="continue_without_account">Hesap olmadan devam et</string>
+    <string name="guest_hint">Herkese açık içeriği hesap açmadan indirebilirsin.</string>
+    <string name="delete_account">Hesabı Sil</string>
+    <string name="delete_account_hint">Hesabın ve tüm verilerin kalıcı olarak silinir. Bu işlem geri alınamaz.</string>
+    <string name="delete_account_confirm">Hesabın ve tüm verilerin kalıcı olarak silinecek. Bu işlem geri alınamaz.</string>
+    <string name="restore_purchases">Satın Alımları Geri Yükle</string>
+    <string name="subscription_terms">Abonelikler, dönem bitmeden en az 24 saat önce iptal edilmezse otomatik yenilenir. Ödeme Google Play hesabınıza yansır. Aboneliği Google Play'den yönetebilir veya iptal edebilirsiniz.</string>
 </resources>

@@ -73,9 +73,37 @@ class AuthViewModel(
         }
     }
 
+    fun loginAsGuest() {
+        viewModelScope.launch {
+            _state.value = _state.value.copy(isLoading = true, error = null)
+            runCatching { api.guestLogin() }
+                .onSuccess {
+                    tokenStorage.saveToken(it.accessToken)
+                    _state.value = AuthUiState(user = it.user)
+                }
+                .onFailure {
+                    _state.value = _state.value.copy(isLoading = false, error = it.localizedMessage)
+                }
+        }
+    }
+
     fun logout() {
         tokenStorage.deleteToken()
         _state.value = AuthUiState()
+    }
+
+    fun deleteAccount() {
+        viewModelScope.launch {
+            _state.value = _state.value.copy(isLoading = true, error = null)
+            runCatching { api.deleteAccount() }
+                .onSuccess {
+                    tokenStorage.deleteToken()
+                    _state.value = AuthUiState()
+                }
+                .onFailure {
+                    _state.value = _state.value.copy(isLoading = false, error = it.localizedMessage)
+                }
+        }
     }
 
     fun clearError() {
