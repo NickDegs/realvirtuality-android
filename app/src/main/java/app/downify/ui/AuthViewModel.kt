@@ -45,24 +45,26 @@ class AuthViewModel(
         }
     }
 
-    fun login(email: String, password: String) {
+    /** Sends an SMS code; invokes [onSent] with success so the UI shows the code field. */
+    fun sendSmsCode(phone: String, onSent: (Boolean) -> Unit) {
         viewModelScope.launch {
             _state.value = _state.value.copy(isLoading = true, error = null)
-            runCatching { api.login(email, password) }
+            runCatching { api.sendSmsCode(phone) }
                 .onSuccess {
-                    tokenStorage.saveToken(it.accessToken)
-                    _state.value = AuthUiState(user = it.user)
+                    _state.value = _state.value.copy(isLoading = false)
+                    onSent(true)
                 }
                 .onFailure {
                     _state.value = _state.value.copy(isLoading = false, error = it.localizedMessage)
+                    onSent(false)
                 }
         }
     }
 
-    fun register(email: String, username: String, password: String) {
+    fun verifySmsCode(phone: String, code: String) {
         viewModelScope.launch {
             _state.value = _state.value.copy(isLoading = true, error = null)
-            runCatching { api.register(email, username, password) }
+            runCatching { api.verifySmsCode(phone, code) }
                 .onSuccess {
                     tokenStorage.saveToken(it.accessToken)
                     _state.value = AuthUiState(user = it.user)

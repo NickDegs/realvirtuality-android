@@ -56,4 +56,13 @@
     <string name="delete_account_confirm">Your account and all data will be permanently deleted. This cannot be undone.</string>
     <string name="restore_purchases">Restore Purchases</string>
     <string name="subscription_terms">Subscriptions auto-renew unless cancelled at least 24 hours before the period ends. Payment is charged to your Google Play account. Manage or cancel anytime in Google Play.</string>
+    <string name="phone_login_subtitle">Sign in with your phone number</string>
+    <string name="code_subtitle">Enter the code sent to your phone</string>
+    <string name="phone_number">5XX XXX XX XX</string>
+    <string name="send_code">Send Code</string>
+    <string name="verification_code">Verification code</string>
+    <string name="verify">Verify</string>
+    <string name="change_number">Change number</string>
+    <string name="resend_code">Resend code</string>
+    <string name="sms_hint">We\'ll text you a 6-digit verification code.</string>
 </resources>

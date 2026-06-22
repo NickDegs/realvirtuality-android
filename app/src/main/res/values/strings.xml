@@ -57,4 +57,13 @@
     <string name="delete_account_confirm">Hesabın ve tüm verilerin kalıcı olarak silinecek. Bu işlem geri alınamaz.</string>
     <string name="restore_purchases">Satın Alımları Geri Yükle</string>
     <string name="subscription_terms">Abonelikler, dönem bitmeden en az 24 saat önce iptal edilmezse otomatik yenilenir. Ödeme Google Play hesabınıza yansır. Aboneliği Google Play\'den yönetebilir veya iptal edebilirsiniz.</string>
+    <string name="phone_login_subtitle">Telefon numaranızla giriş yapın</string>
+    <string name="code_subtitle">Telefona gelen kodu girin</string>
+    <string name="phone_number">5XX XXX XX XX</string>
+    <string name="send_code">Kod Gönder</string>
+    <string name="verification_code">Doğrulama kodu</string>
+    <string name="verify">Doğrula</string>
+    <string name="change_number">Numarayı değiştir</string>
+    <string name="resend_code">Kodu tekrar gönder</string>
+    <string name="sms_hint">Telefonuna SMS ile 6 haneli bir doğrulama kodu göndereceğiz.</string>
 </resources>

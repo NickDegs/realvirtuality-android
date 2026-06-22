@@ -55,16 +55,18 @@ class ApiService(private val tokenStorage: TokenStorage) {
         }
     }
 
-    // MARK: Auth
+    // MARK: Auth (SMS / Twilio Verify)
 
-    suspend fun login(email: String, password: String): AuthResponse {
-        val body = """{"email":"${email.sanitize()}","password":"${password.sanitize()}"}"""
-        return json.decodeFromString(request("/auth/login", "POST", body))
+    /** Sends a one-time SMS code to the phone (E.164, e.g. +905551234567). */
+    suspend fun sendSmsCode(phone: String) {
+        val body = """{"phone":"${phone.sanitize()}"}"""
+        request("/auth/sms/send", "POST", body)
     }
 
-    suspend fun register(email: String, username: String, password: String): AuthResponse {
-        val body = """{"email":"${email.sanitize()}","username":"${username.sanitize()}","password":"${password.sanitize()}"}"""
-        return json.decodeFromString(request("/auth/register", "POST", body))
+    /** Verifies the SMS code; creates/returns the phone account. */
+    suspend fun verifySmsCode(phone: String, code: String): AuthResponse {
+        val body = """{"phone":"${phone.sanitize()}","code":"${code.sanitize()}"}"""
+        return json.decodeFromString(request("/auth/sms/verify", "POST", body))
     }
 
     suspend fun guestLogin(): AuthResponse =
