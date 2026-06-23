@@ -100,13 +100,13 @@ private fun InputState(urlText: String, isFetching: Boolean, onUrlChange: (Strin
         Icon(Icons.Filled.Layers, null, modifier = Modifier.size(48.dp).align(Alignment.CenterHorizontally),
             tint = MaterialTheme.colorScheme.primary)
         Text("Profil veya Playlist URL'si", style = MaterialTheme.typography.titleMedium)
-        Text("Instagram profil, YouTube playlist, TikTok kullanıcı sayfası URL'lerini destekler",
+        Text("Instagram profil, TikTok kullanıcı sayfası ve playlist URL'lerini destekler",
             style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
 
         OutlinedTextField(
             value = urlText,
             onValueChange = onUrlChange,
-            placeholder = { Text("instagram.com/kullanici veya youtube.com/playlist...") },
+            placeholder = { Text("instagram.com/kullanici veya tiktok.com/@kullanici") },
             modifier = Modifier.fillMaxWidth()
         )
 

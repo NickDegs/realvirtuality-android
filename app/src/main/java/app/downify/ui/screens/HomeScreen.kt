@@ -242,7 +242,7 @@ private fun SingleDownloadContent(
             modifier = Modifier.horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            listOf("Instagram", "TikTok", "YouTube", "Twitter/X", "Facebook", "Reddit", "Twitch", "1000+")
+            listOf("Instagram", "TikTok", "Twitter/X", "Facebook", "Reddit", "Twitch", "1000+")
                 .forEach { platform ->
                     SuggestionChip(onClick = {}, label = { Text(platform) })
                 }

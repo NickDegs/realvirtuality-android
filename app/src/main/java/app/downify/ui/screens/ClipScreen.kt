@@ -81,7 +81,7 @@ fun ClipScreen(
             value = urlText,
             onValueChange = { urlText = it },
             label = { Text("Video URL'si") },
-            placeholder = { Text("Instagram, TikTok, YouTube...") },
+            placeholder = { Text("Instagram, TikTok, X…") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),
             trailingIcon = {
                 IconButton(onClick = { urlText = clipboard.getText()?.text ?: "" }) {

@@ -13,7 +13,7 @@
     <string name="download">Download</string>
     <string name="downloading">Downloading…</string>
     <string name="media_url">Media URL</string>
-    <string name="url_placeholder">Instagram, TikTok, YouTube…</string>
+    <string name="url_placeholder">Instagram, TikTok, X…</string>
     <string name="supported_platforms">Supported Platforms</string>
     <string name="preparing">Preparing…</string>
     <string name="download_complete">Download complete!</string>
@@ -30,12 +30,9 @@
     <string name="one_time">one-time</string>
     <string name="best">Best</string>
     <string name="audio_only">Audio Only (MP3)</string>
-    <string name="instagram_session">Private Account Login</string>
     <string name="manage_plan">Manage Plan</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="terms">Terms of Use</string>
-    <string name="instagram_login">Instagram Login</string>
-    <string name="instagram_saved">Instagram session saved. You can now download private content.</string>
     <string name="saving">Saving…</string>
     <string name="paste_url">Paste from clipboard</string>
     <string name="cancel">Cancel</string>

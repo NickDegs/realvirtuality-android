@@ -34,15 +34,12 @@
     <string name="privacy_policy">Política de privacidad</string>
     <string name="support">Soporte</string>
     <string name="terms">Términos de uso</string>
-    <string name="instagram_saved">Sesión de Instagram guardada. Ahora puedes descargar contenido privado.</string>
     <string name="version">Versión</string>
     <string name="ok">Aceptar</string>
     <string name="cancel">Cancelar</string>
     <string name="close">Cerrar</string>
     <string name="error">Error</string>
     <string name="subscription">Suscripción</string>
-    <string name="instagram_login">Inicio de sesión de Instagram</string>
     <string name="paste_url">Pegar desde portapapeles</string>
     <string name="manage_plan">Gestionar plan</string>
-    <string name="instagram_session">Cuenta privada</string>
 </resources>

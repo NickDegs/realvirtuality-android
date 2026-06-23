@@ -211,7 +211,7 @@ private fun AddScheduledDialog(
                     value = urlText,
                     onValueChange = { urlText = it },
                     label = { Text("Video URL'si") },
-                    placeholder = { Text("Instagram, TikTok, YouTube...") },
+                    placeholder = { Text("Instagram, TikTok, X…") },
                     trailingIcon = {
                         IconButton(onClick = { urlText = clipboard.getText()?.text ?: "" }) {
                             Icon(Icons.Default.ContentPaste, contentDescription = "Yapıştır")

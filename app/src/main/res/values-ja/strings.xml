@@ -34,15 +34,12 @@
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="support">サポート</string>
     <string name="terms">利用規約</string>
-    <string name="instagram_saved">Instagramセッションを保存しました。プライベートコンテンツをダウンロードできます。</string>
     <string name="version">バージョン</string>
     <string name="ok">OK</string>
     <string name="cancel">キャンセル</string>
     <string name="close">閉じる</string>
     <string name="error">エラー</string>
     <string name="subscription">サブスクリプション</string>
-    <string name="instagram_login">Instagramログイン</string>
     <string name="paste_url">クリップボードから貼り付け</string>
     <string name="manage_plan">プランを管理</string>
-    <string name="instagram_session">プライベートアカウントログイン</string>
 </resources>

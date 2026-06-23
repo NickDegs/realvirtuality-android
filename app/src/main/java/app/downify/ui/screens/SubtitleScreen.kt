@@ -75,7 +75,7 @@ fun SubtitleScreen(
                     tracks = emptyList()
                     selectedLanguage = ""
                 },
-                placeholder = { Text("YouTube, TikTok, Instagram...") },
+                placeholder = { Text("TikTok, Instagram, X…") },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),
                 trailingIcon = {
                     IconButton(onClick = {

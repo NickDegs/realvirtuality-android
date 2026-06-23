@@ -143,7 +143,7 @@ private fun InputView(
             value = urlText,
             onValueChange = onUrlChange,
             label = { Text("Video URL'si") },
-            placeholder = { Text("YouTube, TikTok, Instagram...") },
+            placeholder = { Text("TikTok, Instagram, X…") },
             trailingIcon = {
                 IconButton(onClick = onPaste) {
                     Icon(Icons.Default.ContentPaste, contentDescription = "Yapıştır")
