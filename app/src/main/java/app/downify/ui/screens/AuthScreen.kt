@@ -1,7 +1,11 @@
 package app.downify.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -15,17 +19,28 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import app.downify.R
+import app.downify.data.Countries
+import app.downify.data.Country
 import app.downify.ui.AuthViewModel
 
 @Composable
 fun AuthScreen(authViewModel: AuthViewModel) {
     val state by authViewModel.state.collectAsState()
     var phase by remember { mutableStateOf("phone") }   // phone | code
-    var dialCode by remember { mutableStateOf("+90") }
+    var country by remember { mutableStateOf(Countries.deviceDefault()) }
+    var showCountryPicker by remember { mutableStateOf(false) }
     var localNumber by remember { mutableStateOf("") }
     var code by remember { mutableStateOf("") }
 
-    val fullPhone = dialCode + localNumber.filter { it.isDigit() }
+    val fullPhone = country.dialCode + localNumber.filter { it.isDigit() }
+
+    if (showCountryPicker) {
+        CountryPickerSheet(
+            selected = country,
+            onSelect = { country = it; showCountryPicker = false },
+            onDismiss = { showCountryPicker = false }
+        )
+    }
 
     Column(
         modifier = Modifier
@@ -52,14 +67,19 @@ fun AuthScreen(authViewModel: AuthViewModel) {
         Spacer(Modifier.height(32.dp))
 
         if (phase == "phone") {
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                OutlinedTextField(
-                    value = dialCode,
-                    onValueChange = { dialCode = it },
-                    singleLine = true,
-                    modifier = Modifier.width(88.dp),
-                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone, imeAction = ImeAction.Next)
-                )
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                OutlinedButton(
+                    onClick = { showCountryPicker = true },
+                    shape = RoundedCornerShape(4.dp),
+                    contentPadding = PaddingValues(horizontal = 12.dp),
+                    modifier = Modifier.height(56.dp)
+                ) {
+                    Text("${country.flag} ${country.dialCode}", maxLines = 1)
+                    Icon(Icons.Filled.ArrowDropDown, contentDescription = null)
+                }
                 OutlinedTextField(
                     value = localNumber,
                     onValueChange = { localNumber = it },
@@ -135,4 +155,56 @@ fun AuthScreen(authViewModel: AuthViewModel) {
 private fun ErrorText(msg: String) {
     Spacer(Modifier.height(8.dp))
     Text(msg, color = MaterialTheme.colorScheme.error, style = MaterialTheme.typography.bodySmall)
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun CountryPickerSheet(
+    selected: Country,
+    onSelect: (Country) -> Unit,
+    onDismiss: () -> Unit
+) {
+    var query by remember { mutableStateOf("") }
+    val filtered = remember(query) {
+        val q = query.trim().lowercase()
+        if (q.isEmpty()) Countries.all
+        else Countries.all.filter {
+            it.name.lowercase().contains(q) || it.dialCode.contains(q) || it.iso.lowercase().contains(q)
+        }
+    }
+
+    ModalBottomSheet(onDismissRequest = onDismiss) {
+        Column(modifier = Modifier.fillMaxHeight(0.85f)) {
+            OutlinedTextField(
+                value = query,
+                onValueChange = { query = it },
+                singleLine = true,
+                leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+                placeholder = { Text(stringResource(R.string.country_search)) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
+            )
+            LazyColumn(modifier = Modifier.fillMaxWidth()) {
+                items(filtered, key = { it.iso }) { c ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable { onSelect(c) }
+                            .padding(horizontal = 20.dp, vertical = 14.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        Text(c.flag, style = MaterialTheme.typography.titleLarge)
+                        Text(c.name, modifier = Modifier.weight(1f))
+                        Text(c.dialCode, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        if (c.iso == selected.iso) {
+                            Icon(Icons.Filled.Check, contentDescription = null,
+                                tint = MaterialTheme.colorScheme.primary)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

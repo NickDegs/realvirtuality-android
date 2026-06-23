@@ -59,6 +59,7 @@
     <string name="phone_login_subtitle">Sign in with your phone number</string>
     <string name="code_subtitle">Enter the code sent to your phone</string>
     <string name="phone_number">5XX XXX XX XX</string>
+    <string name="country_search">Search country or code</string>
     <string name="send_code">Send Code</string>
     <string name="verification_code">Verification code</string>
     <string name="verify">Verify</string>
